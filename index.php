@@ -3,20 +3,30 @@
 
 require('./config/config.php');
 
-// require('../config/data.php');coz index.html is at same level of config thats why only ./
-//Hrre the data is called here to include in our project here. 
-require('./config/' . DATA);
+
 
 
 //HEADER  OF THE ENTIRE PAGE
-require('./inc/header.inc.php');
+require_once('./inc/header.inc.php');
 
 //HERO SECTION OF THE PAGE 
 // $page = isset($_GET['pg']) ? $_GET['pg'] : 'home';
 $page = $_GET['pg'] ?? 'home';
-// echo $page;
-require './page/' . $page . '.php';
 
+// if (!$file_exists('./pages/' . $page . '.php')) {
+// header('Location: index.php');
+// require'./pages/404.php';
+// exist();
+//     $page = '404';
+// }
+// echo $page;
+
+
+
+//ALternative: 2 
+$authorizedPages = ['home', 'videos', 'about', 'contact', 'product'];
+$page = in_array($page, $authorizedPages) ? $page : '404';
+require './page/' . $page . '.php';
 
 //FOOTER FOR THE ENTIRE PAGE 
 require('./inc/footer.php');
