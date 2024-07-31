@@ -1,4 +1,4 @@
-<h1><?php echo strtoupper($_GET['id']) ?></h1>
+<h1><?php echo strtoupper($_GET['id']); ?></h1>
 
 
 <div class="container-fluid tm-container-content tm-mt-60">
