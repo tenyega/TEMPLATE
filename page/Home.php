@@ -29,7 +29,10 @@
         foreach ($articles as $article) : ?>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
-                    <img src="./img/<?php echo $article['image'] ?>" alt="Image" class="img-fluid">
+                    <?php
+                    $imagePath = './img/' . $article['image'];
+                    ?>
+                    <img src="<?php echo file_exists($imagePath) ? $imagePath : DEFAULT_IMAGE ?>" alt="Image" class="img-fluid">
                     <figcaption class="d-flex align-items-center justify-content-center">
                         <h2><?php echo $article['title']; ?></h2>
                         <a href="index.php?pg=product&id=<?php echo strtolower($article['title']); ?>">View more</a>

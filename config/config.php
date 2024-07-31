@@ -9,6 +9,8 @@ require_once('./config/' . DATA);
 define('DATAJSON',__DIR__. '/data.json');
 
 
+// for default image
+define('DEFAULT_IMAGE','./img/default-article-image.png');
 function getArticles()
 {
     $data = json_decode(file_get_contents(DATAJSON), true);
