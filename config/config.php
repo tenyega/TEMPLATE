@@ -6,13 +6,31 @@ define('DATA', 'data.php');
 //Hrre the data is called here to include in our project here. 
 
 require_once('./config/' . DATA);
-define('DATAJSON',__DIR__. '/data.json');
+define('DATAJSON', __DIR__ . '/data.json');
 
 
 // for default image
-define('DEFAULT_IMAGE','./img/default-article-image.png');
+define('DEFAULT_IMAGE', './img/default-article-image.png');
 function getArticles()
 {
     $data = json_decode(file_get_contents(DATAJSON), true);
     return $data;
+}
+
+
+function getDetail($title)
+{
+    $datas = json_decode(file_get_contents(DATAJSON), true);
+    $dataFound = '';
+
+    foreach ($datas as $data) {
+        if ($data['title'] === ucfirst($title)) {
+            $dataFound = [
+                "Title" => $data['title'],
+                "Date" => $data['date'],
+                "Image" =>  $data['image']
+            ];
+        }
+    }
+    return $dataFound;
 }
