@@ -1,16 +1,15 @@
-<h1><?php echo strtoupper($_GET['id']); ?></h1>
+<?php
+$article = getDetail($_GET['id']);
 
+?>
 <div class="container-fluid tm-container-content tm-mt-60">
     <div class="row mb-4">
-        <h2 class="col-12 tm-text-primary">Photo title goes here</h2>
+        <h2 class="col-12 tm-text-primary"><?php echo $article['Title'] ?></h2>
     </div>
     <div class="row tm-mb-90">
         <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
-            <?php
-            $article = getDetail($_GET['id']);
-           
-            ?>
-            <img src="./img/<?php echo $article['Image'] ?>" alt="Image" class="img-fluid">
+
+            <img src="./img/<?php echo $article['Image'] ?>" alt="Image" class="img-fluid imgDetails">
         </div>
         <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
             <div class="tm-bg-gray tm-video-details">
@@ -20,6 +19,9 @@
 
                 <p class="mb-4">
                     Date: <?php echo  $article['Date'] ?>
+                </p>
+                <p class="mb-4">
+                    <?php echo  $article['Views'] ?> Views
                 </p>
                 <div class="text-center mb-5">
                     <a href="#" class="btn btn-primary tm-btn-big">Download</a>

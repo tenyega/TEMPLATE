@@ -28,7 +28,8 @@ function getDetail($title)
             $dataFound = [
                 "Title" => $data['title'],
                 "Date" => $data['date'],
-                "Image" =>  $data['image']
+                "Image" =>  $data['image'],
+                "Views" => $data['views']
             ];
         }
     }
