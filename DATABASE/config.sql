@@ -18,8 +18,8 @@ CREATE TABLE IF NOT EXISTS users(
 
 
  -- inserting the values in the user table;
- INSERT INTO users(id, username, email,pwd)
+ INSERT INTO users(username, email,pwd)
  VALUES
- ('1','Alice','alice@email.com', '12345'),
-  ('2','Bob','bob@email.com', '4321'),
-   ('3','Charlie','charlie@email.com', '0000');
+ ('Alice','alice@email.com', '$2y$10$xEuWCA1gFferxLPrrKRlNu8sPu4WEm5.9xGzbLlmpEvK5cCV3RcDa'), -- 12345
+  ('Bob','bob@email.com', '$2y$10$3pYYWebcREAiX4IstOV47O3N86WIuZ2k8TZ4/zx3GChRjCusaBQUu'), -- 4321
+   ('Charlie','charlie@email.com', '$2y$10$H3CTVumZwFFIyLo2UFWRr.i1npECBBqDx8Mx7Exvryseq4HlMyZti'); -- 0000
